@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 224 76% 48%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -22,7 +22,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 216 100% 97%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,7 +32,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -96,6 +96,69 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .ios-input {
+    @apply w-full bg-white/90 border border-border/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-1 focus:ring-primary/60 focus:border-primary/60 transition-all duration-200;
+  }
+  
+  .ios-button {
+    @apply flex items-center justify-center w-full bg-primary text-primary-foreground rounded-xl py-3 px-4 font-medium transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] disabled:opacity-50;
+  }
+  
+  .ios-card {
+    @apply bg-white rounded-2xl p-6 shadow-sm border border-border/50;
+  }
+  
+  .ios-link {
+    @apply text-primary hover:text-primary/80 transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.3s ease-out forwards;
+  }
+  
+  .animate-up {
+    animation: animateUp 0.4s ease-out forwards;
+  }
+  
+  .animate-fade {
+    animation: animateFade 0.4s ease-out forwards;
+  }
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
